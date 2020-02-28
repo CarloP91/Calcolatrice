@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import java.awt.event.ContainerAdapter;
+import java.awt.event.ContainerEvent;
 
 public class calcolatrice {
 
@@ -62,13 +65,13 @@ public class calcolatrice {
 		frmCalcolatriceCarlo.getContentPane().add(textFieldNum2);
 		
 		JLabel lblNewLabelResult = new JLabel("Il Risultato \u00E8: ");
-		lblNewLabelResult.setBounds(20, 42, 67, 14);
+		lblNewLabelResult.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabelResult.setBounds(10, 42, 86, 14);
 		frmCalcolatriceCarlo.getContentPane().add(lblNewLabelResult);
 		
-		textFieldResult = new JTextField();
-		textFieldResult.setBounds(99, 42, 86, 20);
-		frmCalcolatriceCarlo.getContentPane().add(textFieldResult);
-		textFieldResult.setColumns(10);
+		JLabel lblNewLabelRes = new JLabel("-");
+		lblNewLabelRes.setBounds(108, 39, 77, 20);
+		frmCalcolatriceCarlo.getContentPane().add(lblNewLabelRes);
 		
 		JButton btnNewButton = new JButton("+");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -79,7 +82,7 @@ public class calcolatrice {
 				num2=Integer.parseInt(textFieldNum2.getText());
 				
 				ris=num1+num2;
-				textFieldResult.setText(Integer.toString(ris));
+				lblNewLabelRes.setText(Integer.toString(ris));
 			}catch(Exception e2) {
 				JOptionPane.showMessageDialog(null, "Valore Inserito Errato");
 				}
@@ -98,14 +101,52 @@ public class calcolatrice {
 					num2=Integer.parseInt(textFieldNum2.getText());
 					
 					ris=num1-num2;
-					textFieldResult.setText(Integer.toString(ris));
+					lblNewLabelRes.setText(Integer.toString(ris));
 				}catch(Exception e1) {
 					JOptionPane.showMessageDialog(null, "Valore Inserito Errato");
 					}
 			} 
 		});
-		btnNewButton_2.setBounds(195, 30, 41, 23);
+		btnNewButton_2.setBounds(235, 10, 41, 23);
 		frmCalcolatriceCarlo.getContentPane().add(btnNewButton_2);
-	}
+		
+		JButton btnNewButton_2_1 = new JButton("*");
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+				int num1, num2, ris;
+				 try {
+					num1=Integer.parseInt(textFieldNum1.getText());
+					num2=Integer.parseInt(textFieldNum2.getText());
+					
+					ris=num1*num2;
+					lblNewLabelRes.setText(Integer.toString(ris));
+				}catch(Exception e3) {
+					JOptionPane.showMessageDialog(null, "Valore Inserito Errato");
+					}
+			}
+		});
+		btnNewButton_2_1.setVerticalAlignment(SwingConstants.BOTTOM);
+		btnNewButton_2_1.setBounds(195, 38, 41, 23);
+		frmCalcolatriceCarlo.getContentPane().add(btnNewButton_2_1);
+		
+		JButton btnNewButton_2_1_1 = new JButton("/");
+		btnNewButton_2_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+				int num1, num2, ris;
+				 try {
+					num1=Integer.parseInt(textFieldNum1.getText());
+					num2=Integer.parseInt(textFieldNum2.getText());
+					
+					ris=num1/num2;
+					lblNewLabelRes.setText(Integer.toString(ris));
+				}catch(Exception e4) {
+					JOptionPane.showMessageDialog(null, "Valore Inserito Errato");
+					}
+			}
+		});
+		btnNewButton_2_1_1.setBounds(235, 38, 41, 23);
+		frmCalcolatriceCarlo.getContentPane().add(btnNewButton_2_1_1);
+		
 
+	}
 }
