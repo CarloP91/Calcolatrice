@@ -35,7 +35,7 @@ public class calcolatrice {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the application. Test Git
 	 */
 	public calcolatrice() {
 		initialize();
